@@ -1,6 +1,6 @@
 from mido import MidiFile
 
-mid = MidiFile('./assets/testt.mid')
+mid = MidiFile('./assets/tesst.mid')
 mididict = []
 output = []
 

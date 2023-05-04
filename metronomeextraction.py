@@ -4,8 +4,7 @@ times = output
 
 for i in range(len(times)):
     times[i] = round(times[i], 7)
-print(times)
-metronomes = {} 
+metronomes = []
 trash = []
 
 
@@ -18,10 +17,8 @@ for i in range(len(times)):
         if times[j] in trash:
             continue
         if 2*times[j] - times[i] in times:
-            metronomes[times[i]] = times[j]-times[i]
             counter = 0
-            while round(times[i] + (counter * metronomes[times[i]]), 7) in times and not round(times[i] + (counter * metronomes[times[i]]), 7) in trash:
-                #trash.append(round(times[i] + (counter * metronomes[times[i]]), 7))
+            while round(times[i] + (counter * (times[j]-times[i])), 7) in times and not round(times[i] + (counter * (times[j]-times[i])), 7) in trash:
                 counter += 1
             patterns.append((times[j]-times[i], counter))
 
@@ -33,9 +30,8 @@ for i in range(len(times)):
             bestPattern = pattern
     for j in range(bestPattern[1]):
         trash.append(round(times[i] + (j * bestPattern[0]), 7))
-    metronomes[times[i]] = bestPattern
+    metronomes.append((times[i], bestPattern[0], bestPattern[1]))
             
 
-print(metronomes) #The key is the time the note first starts playing. The value is a tuple that looks like this (how often it's repeated, how many times it's repeated)
 
-# For the pattern to be animate-able then the each key in the metronomes dictionary (starting time) <= the first value of the value tuple (time frequency of the note)
+# To deal with stand alone notes that aren't a part of any pattern, I should put all "bestPattern"s that have length 2 in a temp list and not append anything from them to trash, and I should come back to them at the end of the code to resolve them.
