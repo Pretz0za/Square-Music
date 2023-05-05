@@ -40,8 +40,7 @@ if not len(trash) == len(times):
     for time in times:
         if time in trash:
             continue
-        metronomes.append(time, times[-1], 1)
+        metronomes.append((time, times[-1], 1))
             
 
-print(metronomes)
 # To deal with stand alone notes that aren't a part of any pattern, I should put all "bestPattern"s that have length 2 in a temp list and not append anything from them to trash, and I should come back to them at the end of the code to resolve them.
