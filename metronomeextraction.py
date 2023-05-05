@@ -28,7 +28,7 @@ for i in range(len(times)):
             continue
         if pattern[1] > bestPattern[1]:
             bestPattern = pattern
-    if not bestPattern[1] == 2 and bestPattern == patterns[0]:
+    if not (bestPattern[1] == 2 and bestPattern == patterns[0]):
         for j in range(bestPattern[1]):
             trash.append(round(times[i] + (j * bestPattern[0]), 7))
         metronomes.append((times[i], bestPattern[0], bestPattern[1]))
