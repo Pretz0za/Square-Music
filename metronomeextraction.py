@@ -8,7 +8,6 @@ metronomes = []
 trash = []
 
 
-
 for i in range(len(times)):
     if times[i] in trash:
         continue
