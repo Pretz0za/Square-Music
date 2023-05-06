@@ -1,6 +1,6 @@
 from mido import MidiFile
 
-mid = MidiFile('./assets/imagination.mid')
+mid = MidiFile('./assets/cupid.mid')
 mididict = []
 output = []
 
